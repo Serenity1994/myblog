@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author serenity
@@ -33,47 +35,30 @@ public class UserController {
         ObjectNode objectNode = objectMapper.createObjectNode();
         try {
             User user = objectMapper.readValue(userJson, User.class);
-            System.out.println(user);
-            System.out.println(iUserService);
-            iUserService.save(user);
+            Serializable id = iUserService.save(user);
+            logger.info("user after save:{}",user.toString());
             objectNode.put("success",true);
+            objectNode.put("id",id.toString());
         } catch (IOException e) {
             e.printStackTrace();
             objectNode.put("sucess",false);
         }
-        return Response.ok().entity(objectNode)
-                .header("Access-Control-Allow-Origin","*")
-                .header("Access-Control-Allow-Headers","User-Agent,Origin,Cache-Control,Content-type,Date,Server,withCredentials,AccessToken")
-                .header("Access-Control-Allow-Credentials","true")
-                .header("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS, HEAD")
-                .header("Access-Control-Max-Age","1209600")
-                .header("Access-Control-Expose-Headers","accesstoken")
-                .header("Access-Control-Request-Headers","accesstoken")
-                .header("Expires","-1")
-                .header("Cache-Control","no-cache")
-                .header("pragma","no-cache")
-                .build();
+        return Response.ok().entity(objectNode).build();
     }
 
-    @Path("/user")
     @GET
     @Produces("application/json;charset=utf-8")
     public Response get() {
         logger.info("test run");
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode objectNode = objectMapper.createObjectNode();
+        List<User> users = iUserService.loadAll();
+        try {
+            objectNode.put("data", objectMapper.writeValueAsString(users));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         objectNode.put("test","aaaaaaaaaaaaaaaaaaaaaaafdsafsd");
-        return Response.ok().entity(objectNode)
-                .header("Access-Control-Allow-Origin","*")
-                .header("Access-Control-Allow-Headers","User-Agent,Origin,Cache-Control,Content-type,Date,Server,withCredentials,AccessToken")
-                .header("Access-Control-Allow-Credentials","true")
-                .header("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS, HEAD")
-                .header("Access-Control-Max-Age","1209600")
-                .header("Access-Control-Expose-Headers","accesstoken")
-                .header("Access-Control-Request-Headers","accesstoken")
-                .header("Expires","-1")
-                .header("Cache-Control","no-cache")
-                .header("pragma","no-cache")
-                .build();
+        return Response.ok().entity(objectNode).build();
     }
 }

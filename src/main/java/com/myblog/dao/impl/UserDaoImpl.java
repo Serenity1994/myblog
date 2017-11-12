@@ -9,5 +9,5 @@ import org.springframework.stereotype.Component;
  * @date 17-11-11 15:54
  */
 @Component
-public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements IUserDao{
+public class UserDaoImpl extends BaseDaoImpl<User> implements IUserDao{
 }

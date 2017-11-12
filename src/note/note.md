@@ -12,3 +12,11 @@
 >使用`ctrl`+`shift`+`A`查找到`generate javadoc`填写相关内容后点击确定即可
 * 生成的html乱码解决方法:
  `other conmand line arguments`输入框中添加:`-encoding UTF-8 -charset UTF-8`
+
+## 启动时报错:
+```
+java.lang.Class cannot be cast to java.lang.reflect.ParameterizedType
+```
+* 原因:
+BaseDaoImpl.java类上添加了注解:`@Component`
+* 解决办法:删除该注解

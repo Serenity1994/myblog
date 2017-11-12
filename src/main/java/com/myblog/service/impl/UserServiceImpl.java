@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author serenity
@@ -20,5 +21,9 @@ public class UserServiceImpl implements IUserService{
     @Override
     public Serializable save(User user) {
         return iUserDao.save(user);
+    }
+
+    public List<User> loadAll() {
+        return iUserDao.loadAll();
     }
 }
