@@ -11,7 +11,7 @@
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.myblog">
         <!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
-        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
 
@@ -23,7 +23,7 @@
         <property name="packagesToScan">
             <list>
                 <!-- 可以加多个包 -->
-                <value>com.myblog</value>
+                <value>com.myblog.entity</value>
             </list>
         </property>
         <property name="hibernateProperties">

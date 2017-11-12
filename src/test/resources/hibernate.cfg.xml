@@ -13,7 +13,7 @@
     <property name="hbm2ddl.auto">update</property>
     <property name="connection.url">jdbc:mysql://localhost:3306/myblog</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <mapping class="com.myblog.entity.pojo.AboutBlog"/>
+      <mapping class="com.myblog.entity.pojo.AboutBlog"/>
     <mapping class="com.myblog.entity.pojo.Ad"/>
     <mapping class="com.myblog.entity.pojo.Article"/>
     <mapping class="com.myblog.entity.pojo.ArticleSort"/>
@@ -33,5 +33,25 @@
     <mapping class="com.myblog.entity.pojo.UserGroup"/>
     <mapping class="com.myblog.entity.pojo.UserRank"/>
     <mapping class="com.myblog.entity.pojo.Visitor"/>
+      <mapping resource="com/myblog/entity/pojo/AboutBlog.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/Ad.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/Article.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/ArticleSort.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/Friend.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/FriendlyLink.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/PhoneMessage.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/PhotoSort.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/Photos.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/PowerList.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/SecretMessage.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/Shuoshuo.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/StayMessage.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/SystemMessage.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/User.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/UserAttention.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/UserComment.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/UserGroup.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/UserRank.hbm.xml"/>
+      <mapping resource="com/myblog/entity/pojo/Visitor.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
